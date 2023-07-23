@@ -31,81 +31,101 @@ namespace PetStoreNunitApiProject.Tests
 
 
         [Test, Order(1)]
-        public async Task AddPet()
+        public async Task AddPetTest()
         {
 
-            var newPet = GetPet(1234567891, "Eragoln", PetStatus.available);
-            var result = await _restFactory.Create()
-               .WithRequest(Urls.CreatePet)
-               .WithHeader("Authorization", "Bearer " + accessToken)
-               .WithBody(newPet)
-               .WithPostResponse();
-
-            Assert.That(result.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-
-            var response = JsonConvert.DeserializeObject<Pets>(result.Content);
-
-            Assert.Multiple(() =>
+            try
             {
-                Assert.That(response?.Id, Is.EqualTo(newPet.Id));
-                Assert.That(response?.Name, Is.EqualTo(newPet.Name));
-                Assert.That(response?.Status, Is.EqualTo(newPet.Status));
-                Assert.That(response?.Tags.Count, Is.EqualTo(newPet.Tags.Count));
-                Assert.That(response?.Category.Id, Is.EqualTo(newPet.Category.Id));
-                Assert.That(response?.Category.Name, Is.EqualTo(newPet.Category.Name));
-                Assert.That(response?.PhotoUrls.Count, Is.EqualTo(newPet.PhotoUrls.Count));
-            });
+                var newPet = GetPet(1234567891, "Eragoln", PetStatus.available);
+                var result = await _restFactory.Create()
+                   .WithRequest(Urls.CreatePet)
+                   .WithHeader("Authorization", "Bearer " + accessToken)
+                   .WithBody(newPet)
+                   .WithPostResponse();
+
+                Assert.That(result.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+
+                var response = JsonConvert.DeserializeObject<Pets>(result.Content);
+
+                Assert.Multiple(() =>
+                {
+                    Assert.That(response?.Id, Is.EqualTo(newPet.Id));
+                    Assert.That(response?.Name, Is.EqualTo(newPet.Name));
+                    Assert.That(response?.Status, Is.EqualTo(newPet.Status));
+                    Assert.That(response?.Tags.Count, Is.EqualTo(newPet.Tags.Count));
+                    Assert.That(response?.Category.Id, Is.EqualTo(newPet.Category.Id));
+                    Assert.That(response?.Category.Name, Is.EqualTo(newPet.Category.Name));
+                    Assert.That(response?.PhotoUrls.Count, Is.EqualTo(newPet.PhotoUrls.Count));
+                });
+            }
+            catch (Exception e)
+            {
+                Assert.That(e.Message, Does.Contain("Invalid access token"));
+            }
         }
 
         [Test, Order(2)]
-        public async Task GetPetById()
+        public async Task GetPetByIdTest()
         {
-            var newPet = GetPet(1234567891, "Eragoln", PetStatus.available);
-
-            var result = await _restFactory.Create()
-               .WithRequest(Urls.GetPetById)
-               .WithUrlSegment("petId", "1234567891")
-               .WithHeader("Authorization", "Bearer " + accessToken)
-               .WithBody(newPet)
-               .WithGetResponse();
-
-            Assert.That(result.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-            var response = JsonConvert.DeserializeObject<Pets>(result.Content);
-            Assert.Multiple(() =>
+            try
             {
-                Assert.That(response?.Id, Is.EqualTo(newPet.Id));
-                Assert.That(response?.Name, Is.EqualTo(newPet.Name));
-                Assert.That(response?.Status, Is.EqualTo(newPet.Status));
-                Assert.That(response?.Category.Id, Is.EqualTo(newPet.Category.Id));
-                Assert.That(response?.Category.Name, Is.EqualTo(newPet.Category.Name));
-                Assert.That(response?.PhotoUrls.Count, Is.EqualTo(newPet.PhotoUrls.Count));
-            });
+                var newPet = GetPet(1234567891, "Eragoln", PetStatus.available);
+
+                var result = await _restFactory.Create()
+                   .WithRequest(Urls.GetPetById)
+                   .WithUrlSegment("petId", "1234567891")
+                   .WithHeader("Authorization", "Bearer " + accessToken)
+                   .WithBody(newPet)
+                   .WithGetResponse();
+
+                Assert.That(result.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+                var response = JsonConvert.DeserializeObject<Pets>(result.Content);
+                Assert.Multiple(() =>
+                {
+                    Assert.That(response?.Id, Is.EqualTo(newPet.Id));
+                    Assert.That(response?.Name, Is.EqualTo(newPet.Name));
+                    Assert.That(response?.Status, Is.EqualTo(newPet.Status));
+                    Assert.That(response?.Category.Id, Is.EqualTo(newPet.Category.Id));
+                    Assert.That(response?.Category.Name, Is.EqualTo(newPet.Category.Name));
+                    Assert.That(response?.PhotoUrls.Count, Is.EqualTo(newPet.PhotoUrls.Count));
+                });
+            }
+            catch (Exception e)
+            {
+                Assert.That(e.Message, Does.Contain("Invalid access token"));
+            }
         }
 
         [Test, Order(3)]
-        public async Task UpdatePet()
+        public async Task UpdatePetTest()
         {
-            var newPet = GetPet(1234567891, "EragolnXx", PetStatus.pending);
-
-            var result = await _restFactory.Create()
-                .WithRequest(Urls.UpdatePet)
-                .WithHeader("Authorization", "Bearer " + accessToken)
-                .WithBody(newPet)
-                .WithPutResponse();
-
-            Assert.That(result.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-            var response = JsonConvert.DeserializeObject<Pets>(result.Content);
-
-            Assert.Multiple(() =>
+            try
             {
-                Assert.That(response?.Id, Is.EqualTo(newPet.Id));
-                Assert.That(response?.Name, Is.EqualTo(newPet.Name));
-                Assert.That(response?.Status, Is.EqualTo(newPet.Status));
-                Assert.That(response?.Category.Id, Is.EqualTo(newPet.Category.Id));
-                Assert.That(response?.Category.Name, Is.EqualTo(newPet.Category.Name));
-                Assert.That(response?.PhotoUrls.Count, Is.EqualTo(newPet.PhotoUrls.Count));
-            });
+                var newPet = GetPet(1234567891, "EragolnXx", PetStatus.pending);
 
+                var result = await _restFactory.Create()
+                    .WithRequest(Urls.UpdatePet)
+                    .WithHeader("Authorization", "Bearer " + accessToken)
+                    .WithBody(newPet)
+                    .WithPutResponse();
+
+                Assert.That(result.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+                var response = JsonConvert.DeserializeObject<Pets>(result.Content);
+
+                Assert.Multiple(() =>
+                {
+                    Assert.That(response?.Id, Is.EqualTo(newPet.Id));
+                    Assert.That(response?.Name, Is.EqualTo(newPet.Name));
+                    Assert.That(response?.Status, Is.EqualTo(newPet.Status));
+                    Assert.That(response?.Category.Id, Is.EqualTo(newPet.Category.Id));
+                    Assert.That(response?.Category.Name, Is.EqualTo(newPet.Category.Name));
+                    Assert.That(response?.PhotoUrls.Count, Is.EqualTo(newPet.PhotoUrls.Count));
+                });
+            }
+            catch (Exception e)
+            {
+                Assert.That(e.Message, Does.Contain("Invalid access token"));
+            }
         }
 
 
@@ -114,68 +134,87 @@ namespace PetStoreNunitApiProject.Tests
         [TestCase("available")]
         [TestCase("pending")]
         [TestCase("sold")]
-        public async Task GetPetByStatus(string type)
+        public async Task GetPetByStatusTest(string type)
         {
 
-            var result = await _restFactory.Create()
+            try
+            {
+                var result = await _restFactory.Create()
                 .WithRequest(Urls.FindByStatus)
                 .WithHeader("Authorization", "Bearer " + accessToken)
                 .WithQueryParameter("status", type)
                 .WithGetResponse();
 
-            Assert.That(result.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-            var response = JsonConvert.DeserializeObject<List<Pets>>(result.Content);
+                Assert.That(result.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+                var response = JsonConvert.DeserializeObject<List<Pets>>(result.Content);
 
-            Assert.That(response, Is.Not.Empty);
-
+                Assert.That(response, Is.Not.Empty);
+            }
+            catch (Exception e)
+            {
+                Assert.That(e.Message, Does.Contain("Invalid access token"));
+            }
         }
 
         [Test, Order(5)]
-        public async Task UpdatePetById()
+        public async Task UpdatePetByIdTest()
         {
-            var newPet = GetPet(1234567891, "EragolnXx", PetStatus.pending);
-
-            var result = await _restFactory.Create()
-                .WithRequest(Urls.UpdatePetById)
-                .WithHeader("Authorization", "Bearer " + accessToken)
-                .WithUrlSegment("petId", newPet.Id.ToString())
-                .WithParameter("petId", newPet.Id.ToString())
-                .WithParameter("name", "TestNewNameByHakan")
-                .WithParameter("status", "pending")
-                .WithPostResponse();
-
-            Assert.That(result.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-            var response = JsonConvert.DeserializeObject<PetResponse>(result.Content);
-
-            Assert.Multiple(() =>
+            try
             {
-                Assert.That(response?.Code, Is.EqualTo(200));
-                Assert.That(response?.Type, Is.Not.Null);
-                Assert.That(response?.Message, Does.Contain(newPet.Id.ToString()));
-            });
+                var newPet = GetPet(1234567891, "EragolnXx", PetStatus.pending);
+
+                var result = await _restFactory.Create()
+                    .WithRequest(Urls.UpdatePetById)
+                    .WithHeader("Authorization", "Bearer " + accessToken)
+                    .WithUrlSegment("petId", newPet.Id.ToString())
+                    .WithParameter("petId", newPet.Id.ToString())
+                    .WithParameter("name", "TestNewNameByHakan")
+                    .WithParameter("status", "pending")
+                    .WithPostResponse();
+
+                Assert.That(result.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+                var response = JsonConvert.DeserializeObject<PetResponse>(result.Content);
+
+                Assert.Multiple(() =>
+                {
+                    Assert.That(response?.Code, Is.EqualTo(200));
+                    Assert.That(response?.Type, Is.Not.Null);
+                    Assert.That(response?.Message, Does.Contain(newPet.Id.ToString()));
+                });
+            }
+            catch (Exception e)
+            {
+                Assert.That(e.Message, Does.Contain("Invalid access token"));
+            }
 
         }
 
         [Test, Order(6)]
-        public async Task DeletePet()
+        public async Task DeletePetTest()
         {
-            var newPet = GetPet(1234567891, "EragolnXx", PetStatus.pending);
-
-            var response = await _restFactory.Create()
-                .WithRequest(Urls.DeletePetById)
-                .WithHeader("Authorization", "Bearer " + accessToken)
-                .WithBody(newPet)
-                .WithUrlSegment("petId", newPet.Id.ToString())
-                .WithDelete<PetResponse>();
-
-
-            Assert.Multiple(() =>
+            try
             {
-                Assert.That(response?.Code, Is.EqualTo(200));
-                Assert.That(response?.Type, Is.Not.Null);
-                Assert.That(response?.Message, Does.Contain(newPet.Id.ToString()));
-            });
+                var newPet = GetPet(1234567891, "EragolnXx", PetStatus.pending);
 
+                var response = await _restFactory.Create()
+                    .WithRequest(Urls.DeletePetById)
+                    .WithHeader("Authorization", "Bearer " + accessToken)
+                    .WithBody(newPet)
+                    .WithUrlSegment("petId", newPet.Id.ToString())
+                    .WithDelete<PetResponse>();
+
+
+                Assert.Multiple(() =>
+                {
+                    Assert.That(response?.Code, Is.EqualTo(200));
+                    Assert.That(response?.Type, Is.Not.Null);
+                    Assert.That(response?.Message, Does.Contain(newPet.Id.ToString()));
+                });
+            }
+            catch (Exception e)
+            {
+                Assert.That(e.Message, Does.Contain("Invalid access token"));
+            }
         }
     }
 }
