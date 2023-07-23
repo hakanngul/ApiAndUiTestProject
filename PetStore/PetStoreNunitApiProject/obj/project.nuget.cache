@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0Pr1O/MWySVtqBekRDmUlrUPPn1dRuffSqHwHRvzKMb6iLupFLcHDSYq0kyuXX13lN2iH5h0mVkyX6g+OOhVNA==",
+  "dgSpecHash": "Q04R1c0jFvz840fj5i/7tjPJUoK23hCorwVFjszlLLcNH/6kCmuuZ8yUSR/aKhug9vTqZ+DRlCl4YtgmwS37GQ==",
   "success": true,
-  "projectFilePath": "/Users/hakangul/Desktop/PetStoreApiProjects/PetStore/PetStoreNunitApiProject/PetStoreNunitApiProject.csproj",
+  "projectFilePath": "/Users/hakangul/Desktop/PetStoreApi/PetStore/PetStoreNunitApiProject/PetStoreNunitApiProject.csproj",
   "expectedPackageFiles": [
     "/Users/hakangul/.nuget/packages/coverlet.collector/3.2.0/coverlet.collector.3.2.0.nupkg.sha512",
     "/Users/hakangul/.nuget/packages/fluentassertions/6.11.0/fluentassertions.6.11.0.nupkg.sha512",

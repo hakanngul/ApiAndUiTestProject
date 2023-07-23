@@ -1,16 +1,23 @@
-﻿namespace PetStoreNunitApiProject.Tests {
+﻿using System.Net;
+
+namespace PetStoreNunitApiProject.Tests
+{
     [TestFixture]
-    public class PetTests : BaseTest {
+    public class PetTests : BaseTest
+    {
         private readonly IRestFactory _restFactory = new RestFactory(new RestBuilder(new RestLibrary()));
 
 
 
-        private Pets GetPet(long id, string name, PetStatus status) {
-            return new Pets {
+        private Pets GetPet(long id, string name, PetStatus status)
+        {
+            return new Pets
+            {
                 Id = id,
                 Name = name,
                 Status = status,
-                Category = new Category {
+                Category = new Category
+                {
                     Id = 6786586576578568000,
                     Name = "denemeCategory"
                 },
@@ -24,7 +31,8 @@
 
 
         [Test, Order(1)]
-        public async Task AddPet() {
+        public async Task AddPet()
+        {
 
             var newPet = GetPet(1234567891, "Eragoln", PetStatus.available);
             var result = await _restFactory.Create()
@@ -33,9 +41,12 @@
                .WithBody(newPet)
                .WithPostResponse();
 
+            Assert.That(result.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+
             var response = JsonConvert.DeserializeObject<Pets>(result.Content);
 
-            Assert.Multiple(() => {
+            Assert.Multiple(() =>
+            {
                 Assert.That(response?.Id, Is.EqualTo(newPet.Id));
                 Assert.That(response?.Name, Is.EqualTo(newPet.Name));
                 Assert.That(response?.Status, Is.EqualTo(newPet.Status));
@@ -47,7 +58,8 @@
         }
 
         [Test, Order(2)]
-        public async Task GetPetById() {
+        public async Task GetPetById()
+        {
             var newPet = GetPet(1234567891, "Eragoln", PetStatus.available);
 
             var result = await _restFactory.Create()
@@ -57,8 +69,10 @@
                .WithBody(newPet)
                .WithGetResponse();
 
+            Assert.That(result.StatusCode, Is.EqualTo(HttpStatusCode.OK));
             var response = JsonConvert.DeserializeObject<Pets>(result.Content);
-            Assert.Multiple(() => {
+            Assert.Multiple(() =>
+            {
                 Assert.That(response?.Id, Is.EqualTo(newPet.Id));
                 Assert.That(response?.Name, Is.EqualTo(newPet.Name));
                 Assert.That(response?.Status, Is.EqualTo(newPet.Status));
@@ -69,7 +83,8 @@
         }
 
         [Test, Order(3)]
-        public async Task UpdatePet() {
+        public async Task UpdatePet()
+        {
             var newPet = GetPet(1234567891, "EragolnXx", PetStatus.pending);
 
             var result = await _restFactory.Create()
@@ -78,9 +93,11 @@
                 .WithBody(newPet)
                 .WithPutResponse();
 
+            Assert.That(result.StatusCode, Is.EqualTo(HttpStatusCode.OK));
             var response = JsonConvert.DeserializeObject<Pets>(result.Content);
 
-            Assert.Multiple(() => {
+            Assert.Multiple(() =>
+            {
                 Assert.That(response?.Id, Is.EqualTo(newPet.Id));
                 Assert.That(response?.Name, Is.EqualTo(newPet.Name));
                 Assert.That(response?.Status, Is.EqualTo(newPet.Status));
@@ -97,7 +114,8 @@
         [TestCase("available")]
         [TestCase("pending")]
         [TestCase("sold")]
-        public async Task GetPetByStatus(string type) {
+        public async Task GetPetByStatus(string type)
+        {
 
             var result = await _restFactory.Create()
                 .WithRequest(Urls.FindByStatus)
@@ -105,6 +123,7 @@
                 .WithQueryParameter("status", type)
                 .WithGetResponse();
 
+            Assert.That(result.StatusCode, Is.EqualTo(HttpStatusCode.OK));
             var response = JsonConvert.DeserializeObject<List<Pets>>(result.Content);
 
             Assert.That(response, Is.Not.Empty);
@@ -112,7 +131,8 @@
         }
 
         [Test, Order(5)]
-        public async Task UpdatePetById() {
+        public async Task UpdatePetById()
+        {
             var newPet = GetPet(1234567891, "EragolnXx", PetStatus.pending);
 
             var result = await _restFactory.Create()
@@ -124,9 +144,11 @@
                 .WithParameter("status", "pending")
                 .WithPostResponse();
 
+            Assert.That(result.StatusCode, Is.EqualTo(HttpStatusCode.OK));
             var response = JsonConvert.DeserializeObject<PetResponse>(result.Content);
 
-            Assert.Multiple(() => {
+            Assert.Multiple(() =>
+            {
                 Assert.That(response?.Code, Is.EqualTo(200));
                 Assert.That(response?.Type, Is.Not.Null);
                 Assert.That(response?.Message, Does.Contain(newPet.Id.ToString()));
@@ -135,7 +157,8 @@
         }
 
         [Test, Order(6)]
-        public async Task DeletePet() {
+        public async Task DeletePet()
+        {
             var newPet = GetPet(1234567891, "EragolnXx", PetStatus.pending);
 
             var response = await _restFactory.Create()
@@ -144,7 +167,10 @@
                 .WithBody(newPet)
                 .WithUrlSegment("petId", newPet.Id.ToString())
                 .WithDelete<PetResponse>();
-            Assert.Multiple(() => {
+
+
+            Assert.Multiple(() =>
+            {
                 Assert.That(response?.Code, Is.EqualTo(200));
                 Assert.That(response?.Type, Is.Not.Null);
                 Assert.That(response?.Message, Does.Contain(newPet.Id.ToString()));

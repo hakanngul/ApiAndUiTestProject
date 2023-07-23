@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/hakangul/Desktop/PetStoreApiProjects/PetStore/PetStoreNunitApiProject/PetStoreNunitApiProject.csproj": {}
+    "/Users/hakangul/Desktop/PetStoreApi/PetStore/PetStoreNunitApiProject/PetStoreNunitApiProject.csproj": {}
   },
   "projects": {
-    "/Users/hakangul/Desktop/PetStoreApiProjects/PetStore/PetStoreNunitApiProject/PetStoreNunitApiProject.csproj": {
+    "/Users/hakangul/Desktop/PetStoreApi/PetStore/PetStoreNunitApiProject/PetStoreNunitApiProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/hakangul/Desktop/PetStoreApiProjects/PetStore/PetStoreNunitApiProject/PetStoreNunitApiProject.csproj",
+        "projectUniqueName": "/Users/hakangul/Desktop/PetStoreApi/PetStore/PetStoreNunitApiProject/PetStoreNunitApiProject.csproj",
         "projectName": "PetStoreNunitApiProject",
-        "projectPath": "/Users/hakangul/Desktop/PetStoreApiProjects/PetStore/PetStoreNunitApiProject/PetStoreNunitApiProject.csproj",
+        "projectPath": "/Users/hakangul/Desktop/PetStoreApi/PetStore/PetStoreNunitApiProject/PetStoreNunitApiProject.csproj",
         "packagesPath": "/Users/hakangul/.nuget/packages/",
-        "outputPath": "/Users/hakangul/Desktop/PetStoreApiProjects/PetStore/PetStoreNunitApiProject/obj/",
+        "outputPath": "/Users/hakangul/Desktop/PetStoreApi/PetStore/PetStoreNunitApiProject/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/hakangul/.nuget/NuGet/NuGet.Config"
