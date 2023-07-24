@@ -817,13 +817,13 @@ C:/Users/hgul/source/repos/PetStoreNunitApiProject/PetStoreNunitApiProject/obj/D
 /Users/hakangul/Desktop/PetStoreApiProjects/PetStore/PetStoreNunitApiProject/obj/Debug/net6.0/PetStoreNunitApiProject.pdb
 /Users/hakangul/Desktop/PetStoreApiProjects/PetStore/PetStoreNunitApiProject/obj/Debug/net6.0/PetStoreNunitApiProject.genruntimeconfig.cache
 /Users/hakangul/Desktop/PetStoreApiProjects/PetStore/PetStoreNunitApiProject/obj/Debug/net6.0/ref/PetStoreNunitApiProject.dll
+/Users/hakangul/Desktop/PetStoreApi/PetStore/PetStoreNunitApiProject/bin/Debug/net6.0/MvcTestingAppManifest.json
 /Users/hakangul/Desktop/PetStoreApi/PetStore/PetStoreNunitApiProject/bin/Debug/net6.0/NUnit3.TestAdapter.dll
 /Users/hakangul/Desktop/PetStoreApi/PetStore/PetStoreNunitApiProject/bin/Debug/net6.0/NUnit3.TestAdapter.pdb
 /Users/hakangul/Desktop/PetStoreApi/PetStore/PetStoreNunitApiProject/bin/Debug/net6.0/nunit.engine.dll
 /Users/hakangul/Desktop/PetStoreApi/PetStore/PetStoreNunitApiProject/bin/Debug/net6.0/nunit.engine.api.dll
 /Users/hakangul/Desktop/PetStoreApi/PetStore/PetStoreNunitApiProject/bin/Debug/net6.0/nunit.engine.core.dll
 /Users/hakangul/Desktop/PetStoreApi/PetStore/PetStoreNunitApiProject/bin/Debug/net6.0/testcentric.engine.metadata.dll
-/Users/hakangul/Desktop/PetStoreApi/PetStore/PetStoreNunitApiProject/bin/Debug/net6.0/MvcTestingAppManifest.json
 /Users/hakangul/Desktop/PetStoreApi/PetStore/PetStoreNunitApiProject/bin/Debug/net6.0/PetStoreNunitApiProject.deps.json
 /Users/hakangul/Desktop/PetStoreApi/PetStore/PetStoreNunitApiProject/bin/Debug/net6.0/PetStoreNunitApiProject.runtimeconfig.json
 /Users/hakangul/Desktop/PetStoreApi/PetStore/PetStoreNunitApiProject/bin/Debug/net6.0/PetStoreNunitApiProject.dll

@@ -1,0 +1,46 @@
+﻿<Properties StartupConfiguration="{EE63D65E-0868-4381-BEEA-9F6DBEF4C526}|Default">
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.Workbench ActiveDocument="PetStoreNunitApiProject/Tests/UserTests.cs">
+    <Files>
+      <File FileName="PetStoreNunitApiProject/Base/RestBuilder.cs" Line="10" Column="40" />
+      <File FileName="PetStoreNunitApiProject/Tests/BaseTest.cs" Line="35" Column="6" />
+      <File FileName="PetStoreNunitApiProject/Tests/PetTests.cs" Line="204" Column="14" />
+      <File FileName="PetStoreNunitApiProject/Tests/StoreTests.cs" Line="22" Column="78" />
+      <File FileName="PetStoreNunitApiProject/Tests/UserTests.cs" Line="16" Column="34" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="PetStoreNunitApiProject" expanded="True">
+            <Node name="PetStoreNunitApiProject" expanded="True">
+              <Node name="Base" expanded="True" />
+              <Node name="Tests" expanded="True">
+                <Node name="UserTests.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="PetStoreNunitApiProject" expanded="True">
+            <Node name="PetStoreNunitApiProject" expanded="True">
+              <Node name="PetStoreNunitApiProject.Tests" expanded="True">
+                <Node name="StoreTests" expanded="True" />
+                <Node name="UserTests" expanded="True">
+                  <Node name="GetUserNameTest" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.PetStoreNunitApiProject PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

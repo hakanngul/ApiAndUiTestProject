@@ -1,7 +1,9 @@
 ﻿using RestSharp;
 
-namespace PetStoreNunitApiProject.Base.Interfaces {
-    public interface IRestBuilder {
+namespace PetStoreNunitApiProject.Base.Interfaces
+{
+    public interface IRestBuilder
+    {
         IRestBuilder WithRequest(string request);
         IRestBuilder WithHeader(string name, string value);
         IRestBuilder WithQueryParameter(string name, string value);
@@ -11,6 +13,7 @@ namespace PetStoreNunitApiProject.Base.Interfaces {
         Task<RestResponse> WithGetResponse();
         Task<RestResponse> WithPostResponse();
         Task<RestResponse> WithPutResponse();
+        Task<RestResponse> WithDeleteResponse();
         Task<RestResponse> Execute();
         Task<T?> WithGet<T>();
         Task<T?> WithPost<T>();
